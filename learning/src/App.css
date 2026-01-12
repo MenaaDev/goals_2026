@@ -1,0 +1,364 @@
+/* App.css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+.App {
+  min-height: 100vh;
+}
+
+.hero-container {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fef9e7 0%, #fff4e6 25%, #ffe4b5 50%, #ffdab9 75%, #ffc8a0 100%);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Floating Shapes */
+.floating-shapes {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.12;
+  animation: float 8s ease-in-out infinite;
+}
+
+.shape-1 {
+  width: 350px;
+  height: 350px;
+  background: linear-gradient(135deg, #ffb347, #ff9a76);
+  top: 5%;
+  left: 8%;
+  animation-delay: 0s;
+}
+
+.shape-2 {
+  width: 250px;
+  height: 250px;
+  background: linear-gradient(135deg, #ffd89b, #ffb88c);
+  top: 55%;
+  right: 12%;
+  animation-delay: 2s;
+}
+
+.shape-3 {
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(135deg, #ffe4b5, #ffdab9);
+  bottom: 8%;
+  left: 18%;
+  animation-delay: 4s;
+}
+
+.shape-4 {
+  width: 180px;
+  height: 180px;
+  background: linear-gradient(135deg, #ffb88c, #ff9a76);
+  top: 25%;
+  right: 25%;
+  animation-delay: 6s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translateY(-25px) rotate(5deg) scale(1.08);
+  }
+  50% {
+    transform: translateY(-45px) rotate(-5deg) scale(0.92);
+  }
+  75% {
+    transform: translateY(-25px) rotate(3deg) scale(1.05);
+  }
+}
+
+/* Chihuahuas Realistas con SVG */
+.chihuahuas-container {
+  position: absolute;
+  bottom: 10%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  padding: 0 15%;
+  z-index: 1;
+}
+
+.chihuahua {
+  width: 200px;
+  height: 180px;
+  animation: bounce 3s ease-in-out infinite;
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.15));
+}
+
+.chihuahua:hover {
+  transform: scale(1.15) translateY(-15px);
+}
+
+.chi-white {
+  animation-delay: 0s;
+}
+
+.chi-beige {
+  animation-delay: 1.5s;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(1deg);
+  }
+}
+
+.chihuahua svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Hero Content */
+.hero-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #ff9a76;
+  box-shadow: 0 4px 20px rgba(255, 154, 118, 0.3);
+  margin-bottom: 35px;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.sparkle {
+  animation: spin 3s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.main-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.title-learning {
+  font-size: clamp(3rem, 10vw, 6rem);
+  font-weight: 900;
+  background: linear-gradient(135deg, #ff9a76, #ff7f50);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -2px;
+  animation: slideInLeft 1s ease-out;
+}
+
+.title-2026 {
+  font-size: clamp(5rem, 15vw, 10rem);
+  font-weight: 900;
+  background: linear-gradient(135deg, #ffb347, #ff9a76, #ff7f50);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -4px;
+  text-shadow: 0 10px 30px rgba(255, 154, 118, 0.3);
+  animation: slideInRight 1s ease-out;
+  position: relative;
+}
+
+.title-2026::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #ff9a76, transparent);
+  border-radius: 2px;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.subtitle {
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  color: #a0522d;
+  font-weight: 600;
+  margin-bottom: 40px;
+  animation: fadeIn 1s ease-out 0.5s backwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  animation: fadeIn 2s ease-out 1s backwards;
+}
+
+.mouse {
+  width: 26px;
+  height: 40px;
+  border: 2px solid #a0522d;
+  border-radius: 13px;
+  position: relative;
+}
+
+.wheel {
+  width: 4px;
+  height: 8px;
+  background: #a0522d;
+  border-radius: 2px;
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: scroll 2s ease-out infinite;
+}
+
+@keyframes scroll {
+  0% {
+    opacity: 1;
+    top: 8px;
+  }
+  100% {
+    opacity: 0;
+    top: 24px;
+  }
+}
+
+.arrow {
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 8px solid #a0522d;
+  animation: arrowBounce 2s ease-out infinite;
+}
+
+@keyframes arrowBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .chihuahuas-container {
+    bottom: 15%;
+    padding: 0 5%;
+  }
+  
+  .chihuahua {
+    width: 150px;
+    height: 135px;
+  }
+  
+  .badge {
+    font-size: 13px;
+    padding: 10px 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .chihuahua {
+    width: 120px;
+    height: 108px;
+  }
+  
+  .chihuahuas-container {
+    bottom: 18%;
+  }
+}
